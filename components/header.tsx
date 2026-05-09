@@ -99,39 +99,39 @@ export function Header() {
         <div className="border-t border-border bg-background px-6 py-8 md:hidden rounded-b-2xl">
           <nav className="flex flex-col gap-6">
             <Link
-              href="/projets"
+              href="/"
               className="text-lg text-foreground"
               onClick={() => setIsMenuOpen(false)}
             >
-              Projets
-            </Link>
-            <Link
-              href="/galerie"
-              className="text-lg text-foreground"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Galerie
+              Accueil
             </Link>
             <Link
               href="/a-propos"
               className="text-lg text-foreground"
               onClick={() => setIsMenuOpen(false)}
             >
-              À propos
+              À Propos
             </Link>
             <Link
-              href="/temoignages"
+              href="/projets"
               className="text-lg text-foreground"
               onClick={() => setIsMenuOpen(false)}
             >
-              Témoignages
+              Nos projets
             </Link>
             <Link
-              href="/#contact"
+              href="/nos-actualites"
+              className="text-lg text-foreground"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Nos actualités
+            </Link>
+            <Link
+              href="/contact"
               className="mt-4 bg-primary px-5 py-3 text-center text-sm font-medium text-background rounded-full"
               onClick={() => setIsMenuOpen(false)}
             >
-              Nous contacter
+              CONTACT
             </Link>
           </nav>
         </div>
