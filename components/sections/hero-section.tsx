@@ -35,6 +35,8 @@ const sideImages = [
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [heroImageLoaded, setHeroImageLoaded] = useState(false);
+  const [taglineVisible, setTaglineVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,6 +56,20 @@ export function HeroSection() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+  }, []);
+
+  useEffect(() => {
+    // Start hero image reveal after IWENE text animation finishes
+    // Last letter delay: 4 * 0.08s = 0.32s, animation duration: 0.8s → ends at ~1.12s
+    const timer = setTimeout(() => setHeroImageLoaded(true), 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    // Reveal tagline after hero image animation completes
+    // Image reveal starts at 1.2s, duration 1s → ends at ~2.2s
+    const timer = setTimeout(() => setTaglineVisible(true), 2200);
+    return () => clearTimeout(timer);
   }, []);
 
   // Text fades out first (0 to 0.2)
@@ -139,7 +155,7 @@ export function HeroSection() {
 
             {/* Main Hero Image - Center */}
             <div
-              className="relative will-change-transform flex items-center justify-center"
+              className="relative will-change-transform flex items-center justify-center overflow-hidden"
               style={{
                 width: `${centerWidth}%`,
                 height: `${centerHeight}%`,
@@ -153,7 +169,9 @@ export function HeroSection() {
                 src="/images/First.png"
                 alt="Iwene Luxury Residences"
                 fill
-                className="absolute inset-0 z-10 object-cover drop-shadow-2xl"
+                className={`absolute inset-0 z-10 object-cover drop-shadow-2xl transition-all duration-1000 ease-out ${
+                  heroImageLoaded ? "opacity-100 scale-100" : "opacity-0 scale-[1.02]"
+                }`}
                 priority
               />
             </div>
@@ -193,12 +211,15 @@ export function HeroSection() {
 
       {/* Tagline Section - Fixed at bottom */}
       <div
-        className="pointer-events-none fixed bottom-0 left-0 right-0 z-10 px-6 pb-12 md:px-12 md:pb-16 lg:px-20 lg:pb-20"
-        style={{ opacity: textOpacity }}
+        className={`pointer-events-none fixed bottom-0 left-0 right-0 z-10 px-6 pb-12 md:px-12 md:pb-16 lg:px-20 lg:pb-20 transition-all duration-700 ease-out ${
+          taglineVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
       >
-        <p className="mx-auto max-w-2xl text-center text-2xl leading-relaxed text-white md:text-3xl lg:text-[2.5rem] lg:leading-snug"
+        <p
+          className="mx-auto max-w-2xl text-center text-2xl leading-relaxed text-white md:text-3xl lg:text-[2.5rem] lg:leading-snug"
           style={{
-            textShadow: '0 2px 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(201, 169, 97, 0.6), 0 0 40px rgba(201, 169, 97, 0.3)'
+            opacity: textOpacity,
+            textShadow: '0 2px 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(201, 169, 97, 0.6), 0 0 40px rgba(201, 169, 97, 0.3)',
           }}
         >
           Résidences Premium
