@@ -19,17 +19,17 @@ export function Header() {
   }, []);
 
   return (
-    <header 
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl transition-all duration-300 ${isScrolled ? "bg-background/80 backdrop-blur-md rounded-full shadow-lg" : "bg-transparent"}`}
+    <header
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl transition-all duration-300 backdrop-blur-md rounded-full ${isScrolled ? "bg-background/90 shadow-lg" : "bg-background/40 shadow-sm"}`}
       style={{
-        boxShadow: isScrolled ? "rgba(201, 169, 97, 0.15) 0px 0px 0px 1px, rgba(26, 26, 26, 0.04) 0px 1px 1px -0.5px, rgba(26, 26, 26, 0.04) 0px 3px 3px -1.5px" : "none"
+        boxShadow: isScrolled ? "rgba(201, 169, 97, 0.15) 0px 0px 0px 1px, rgba(26, 26, 26, 0.04) 0px 1px 1px -0.5px, rgba(26, 26, 26, 0.04) 0px 3px 3px -1.5px" : "rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset"
       }}
     >
       <div className="flex items-center justify-between transition-all duration-300 px-4 pl-5 py-3">
         {/* Logo */}
         <Link href="/" className="transition-opacity duration-300 hover:opacity-80">
           <Image
-            src="/images/iwene-logo.png"
+            src="https://iwene.com.tn/wp-content/uploads/2024/04/logo-iwene-finale.png"
             alt="Iwene"
             width={120}
             height={40}
@@ -40,38 +40,38 @@ export function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-8 md:flex">
           <Link
-            href="/projets"
-            className="text-sm transition-colors text-muted-foreground hover:text-primary"
+            href="/"
+            className="text-sm font-medium transition-colors text-foreground/80 hover:text-primary"
           >
-            Projets
-          </Link>
-          <Link
-            href="/galerie"
-            className="text-sm transition-colors text-muted-foreground hover:text-primary"
-          >
-            Galerie
+            Accueil
           </Link>
           <Link
             href="/a-propos"
-            className="text-sm transition-colors text-muted-foreground hover:text-primary"
+            className="text-sm font-medium transition-colors text-foreground/80 hover:text-primary"
           >
-            À propos
+            À Propos
           </Link>
           <Link
-            href="/temoignages"
-            className="text-sm transition-colors text-muted-foreground hover:text-primary"
+            href="/projets"
+            className="text-sm font-medium transition-colors text-foreground/80 hover:text-primary"
           >
-            Témoignages
+            Nos projets
+          </Link>
+          <Link
+            href="/nos-actualites"
+            className="text-sm font-medium transition-colors text-foreground/80 hover:text-primary"
+          >
+            Nos actualités
           </Link>
         </nav>
 
         {/* CTA */}
         <div className="hidden items-center gap-6 md:flex">
           <Link
-            href="/#contact"
+            href="/contact"
             className="px-4 py-2 text-sm font-medium transition-all rounded-full bg-primary text-background hover:opacity-90"
           >
-            Nous contacter
+            CONTACT
           </Link>
         </div>
 

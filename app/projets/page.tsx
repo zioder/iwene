@@ -1,10 +1,9 @@
-import { Header } from "@/components/header";
-import { FeaturedProductsSection } from "@/components/sections/featured-products-section";
-import { TechnologySection } from "@/components/sections/technology-section";
+﻿import { Header } from "@/components/header";
+import { CollectionSection } from "@/components/sections/collection-section";
 import { FooterSection } from "@/components/sections/footer-section";
 
 export const metadata = {
-  title: 'Projets - IWENE',
+  title: 'Nos Projets - IWENE',
   description: 'Découvrez nos projets de résidences premium en Tunisie.',
 };
 
@@ -18,8 +17,7 @@ export default function Projects() {
           Explorez notre collection de résidences premium conçues avec excellence et attention aux détails.
         </p>
       </div>
-      <FeaturedProductsSection />
-      <TechnologySection />
+      <CollectionSection />
       <FooterSection />
     </main>
   );

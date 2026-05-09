@@ -13,19 +13,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/images/iwene-logo.png',
+        url: 'https://iwene.com.tn/wp-content/uploads/2024/04/logo-iwene-finale.png',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/images/iwene-logo.png',
+        url: 'https://iwene.com.tn/wp-content/uploads/2024/04/logo-iwene-finale.png',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/images/iwene-logo.png',
+        url: 'https://iwene.com.tn/wp-content/uploads/2024/04/logo-iwene-finale.png',
         type: 'image/png',
       },
     ],
-    apple: '/images/iwene-logo.png',
+    apple: 'https://iwene.com.tn/wp-content/uploads/2024/04/logo-iwene-finale.png',
   },
 }
 

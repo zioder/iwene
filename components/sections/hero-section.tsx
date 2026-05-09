@@ -7,25 +7,25 @@ const word = "IWENE";
 
 const sideImages = [
   {
-    src: "/images/iwene-residence-diar.jpg",
+    src: "https://iwene.com.tn/wp-content/uploads/2024/03/Rendu-1-1.webp",
     alt: "Residence Diar Iwen",
     position: "left",
     span: 1,
   },
   {
-    src: "/images/iwene-residence-horizon.png",
+    src: "https://iwene.com.tn/wp-content/uploads/2024/03/rendu-3-1.webp",
     alt: "Residence Horizon",
     position: "left",
     span: 1,
   },
   {
-    src: "/images/iwene-residence-sahlloul.png",
+    src: "https://iwene.com.tn/wp-content/uploads/2024/03/rendu-2-1.webp",
     alt: "Residence Iwen Sahlloul",
     position: "right",
     span: 1,
   },
   {
-    src: "/images/iwene-rendu-2.webp",
+    src: "https://iwene.com.tn/wp-content/uploads/2019/11/RESIDENCE-HORIZON-1.jpg.png",
     alt: "Iwene Residence Rendering",
     position: "right",
     span: 1,
@@ -39,18 +39,18 @@ export function HeroSection() {
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
-      
+
       const rect = sectionRef.current.getBoundingClientRect();
       const scrollableHeight = window.innerHeight * 2;
       const scrolled = -rect.top;
       const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
-      
+
       setScrollProgress(progress);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -58,10 +58,10 @@ export function HeroSection() {
 
   // Text fades out first (0 to 0.2)
   const textOpacity = Math.max(0, 1 - (scrollProgress / 0.2));
-  
+
   // Image transforms start after text fades (0.2 to 1)
   const imageProgress = Math.max(0, Math.min(1, (scrollProgress - 0.2) / 0.8));
-  
+
   // Smooth interpolations - More balanced distribution
   const centerWidth = 100 - (imageProgress * 80); // 100% to 20% (same as each side image)
   const centerHeight = 100; // Always 100% height
@@ -71,7 +71,7 @@ export function HeroSection() {
   const sideTranslateRight = 100 - (imageProgress * 100); // 100% to 0%
   const borderRadius = 0; // No border radius
   const gap = imageProgress * 8; // 0px to 8px
-  
+
   // Vertical offset for side columns to move them up on mobile
   const sideTranslateY = -(imageProgress * 15); // Move up by 15% when fully expanded
 
@@ -79,15 +79,37 @@ export function HeroSection() {
     <section ref={sectionRef} className="relative bg-background">
       {/* Sticky container for scroll animation */}
       <div className="sticky top-0 h-screen overflow-hidden">
-        <div className="flex h-full w-full items-center justify-center">
+        {/* Massive Background Text - Fixed behind everything */}
+        <div
+          className="absolute inset-0 z-0 flex items-start justify-center pointer-events-none pt-8 md:pt-25"
+          style={{ opacity: textOpacity }}
+        >
+          <h1 className="whitespace-nowrap text-[25vw] font-bold leading-[0.8] tracking-tighter text-primary">
+            {word.split("").map((letter, index) => (
+              <span
+                key={index}
+                className="inline-block animate-[slideUp_0.8s_ease-out_forwards] opacity-0"
+                style={{
+                  animationDelay: `${index * 0.08}s`,
+                  transition: 'all 1.5s',
+                  transitionTimingFunction: 'cubic-bezier(0.86, 0, 0.07, 1)',
+                }}
+              >
+                {letter}
+              </span>
+            ))}
+          </h1>
+        </div>
+
+        <div className="flex h-full w-full items-center justify-center relative z-10">
           {/* Bento Grid Container */}
-          <div 
+          <div
             className="relative flex h-full w-full items-stretch justify-center"
             style={{ gap: `${gap}px` }}
           >
-            
+
             {/* Left Column */}
-            <div 
+            <div
               className="flex h-full flex-row will-change-transform"
               style={{
                 width: `${sideWidth}%`,
@@ -97,8 +119,8 @@ export function HeroSection() {
               }}
             >
               {sideImages.filter(img => img.position === "left").map((img, idx) => (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className="relative h-full overflow-hidden will-change-transform"
                   style={{
                     flex: img.span,
@@ -116,8 +138,8 @@ export function HeroSection() {
             </div>
 
             {/* Main Hero Image - Center */}
-            <div 
-              className="relative overflow-hidden will-change-transform"
+            <div
+              className="relative will-change-transform flex items-center justify-center"
               style={{
                 width: `${centerWidth}%`,
                 height: `${centerHeight}%`,
@@ -125,39 +147,17 @@ export function HeroSection() {
                 borderRadius: `${borderRadius}px`,
               }}
             >
-              {/* Text Behind - Fades out first */}
-              <div 
-                className="absolute inset-0 z-0 flex items-center justify-center"
-                style={{ opacity: textOpacity, transform: 'translateY(-200px)' }}
-              >
-                <h1 className="whitespace-nowrap text-[35vw] font-bold leading-[0.8] tracking-tighter text-primary">
-                  {word.split("").map((letter, index) => (
-                    <span
-                      key={index}
-                      className="inline-block animate-[slideUp_0.8s_ease-out_forwards] opacity-0"
-                      style={{
-                        animationDelay: `${index * 0.08}s`,
-                        transition: 'all 1.5s',
-                        transitionTimingFunction: 'cubic-bezier(0.86, 0, 0.07, 1)',
-                      }}
-                    >
-                      {letter}
-                    </span>
-                  ))}
-                </h1>
-              </div>
-              
               <Image
-                src="/images/iwene-hero-1.webp"
+                src="/images/First.png"
                 alt="Iwene Luxury Residences"
                 fill
-                className="absolute inset-0 z-10 object-cover"
+                className="absolute inset-0 z-10 object-cover drop-shadow-2xl"
                 priority
               />
             </div>
 
             {/* Right Column */}
-            <div 
+            <div
               className="flex h-full flex-row will-change-transform"
               style={{
                 width: `${sideWidth}%`,
@@ -167,8 +167,8 @@ export function HeroSection() {
               }}
             >
               {sideImages.filter(img => img.position === "right").map((img, idx) => (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className="relative h-full overflow-hidden will-change-transform"
                   style={{
                     flex: img.span,
@@ -190,7 +190,7 @@ export function HeroSection() {
       </div>
 
       {/* Tagline Section - Fixed at bottom */}
-      <div 
+      <div
         className="pointer-events-none fixed bottom-0 left-0 right-0 z-10 px-6 pb-12 md:px-12 md:pb-16 lg:px-20 lg:pb-20"
         style={{ opacity: textOpacity }}
       >

@@ -9,10 +9,10 @@ export function GallerySection() {
   const rafRef = useRef<number | null>(null);
 
   const images = [
-    { src: "/images/mono-1.png", alt: "Résidence Iwene au lever du soleil" },
-    { src: "/images/mono-2.png", alt: "Résidence Iwene en plein jour" },
-    { src: "/images/mono-3.png", alt: "Résidence Iwene au coucher du soleil" },
-    { src: "/images/mono-4.png", alt: "Résidence Iwene la nuit" },
+    { src: "https://iwene.com.tn/wp-content/uploads/2024/03/Rendu-1-1.webp", alt: "Résidence Iwene au lever du soleil" },
+    { src: "https://iwene.com.tn/wp-content/uploads/2024/03/rendu-3-1.webp", alt: "Résidence Iwene en plein jour" },
+    { src: "https://iwene.com.tn/wp-content/uploads/2024/03/rendu-2-1.webp", alt: "Résidence Iwene au coucher du soleil" },
+    { src: "https://iwene.com.tn/wp-content/uploads/2023/10/1504024492_facade.angle01.t.jpg", alt: "Résidence Iwene la nuit" },
   ];
 
   const updateTransform = useCallback(() => {

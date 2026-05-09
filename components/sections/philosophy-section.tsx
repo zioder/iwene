@@ -145,7 +145,7 @@ export function PhilosophySection() {
         <div className="text-center">
           
           <p className="mt-8 leading-relaxed text-muted-foreground text-3xl text-center">
-            {("Iwene propose des résidences exclusives qui allient le design moderne à l'élégance intemporelle. Chaque propriété est conçue avec une attention minutieuse aux détails et construite pour dépasser les attentes.").split(" ").map((word, index, array) => {
+            {("La société Iwene est une société tunisienne de promotion immobilière agrée par le ministère de l’équipement et de l’habitat constituée en 2005. Elle fait partie d’un groupe de sociétés fondé par les Cousins MOALLA.").split(" ").map((word, index, array) => {
               const wordProgress = Math.max(0, Math.min(1, (descriptionProgress * array.length) - index));
               const opacity = wordProgress;
               const blur = (1 - wordProgress) * 40;

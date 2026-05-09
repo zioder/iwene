@@ -4,43 +4,43 @@ import { FadeImage } from "@/components/fade-image";
 
 const features = [
   {
-    image: "/images/4312e1bb-e030-4528-b6df-8a6ea69fe384.png",
+    image: "https://iwene.com.tn/wp-content/uploads/2024/03/Rendu-1-1.webp",
     span: "col-span-2 row-span-2", // Large
   },
   {
-    image: "/images/b2401fa5-4eac-465f-b1f9-014aadc182ee.png",
+    image: "https://iwene.com.tn/wp-content/uploads/2024/03/rendu-3-1.webp",
     span: "col-span-1 row-span-1", // Small
   },
   {
-    image: "/images/dd1b32a8-3722-4ea2-8808-10d53532809d.png",
+    image: "https://iwene.com.tn/wp-content/uploads/2024/03/rendu-2-1.webp",
     span: "col-span-1 row-span-1", // Small
   },
   {
-    image: "/images/61af06cc-84d0-4031-a0ed-76fc43b1c1e1.png",
+    image: "https://iwene.com.tn/wp-content/uploads/2024/03/rendu-2.webp",
     span: "col-span-1 row-span-2", // Tall
   },
   {
-    image: "/images/249083d2-c49c-4c06-a125-376284d90c42.png",
+    image: "https://iwene.com.tn/wp-content/uploads/2019/11/RESIDENCE-DIAR-IWEN-2-1.jpg",
     span: "col-span-1 row-span-1", // Small
   },
   {
-    image: "/images/7638f650-8586-4403-8c13-141921a04f9d.png",
+    image: "https://iwene.com.tn/wp-content/uploads/2024/03/Rendu-1.webp",
     span: "col-span-2 row-span-1", // Wide
   },
   {
-    image: "/images/5b3bdb95-fac7-4d22-aa97-98b5d547b2db.png",
+    image: "https://iwene.com.tn/wp-content/uploads/2023/10/1504024492_facade.angle01.t.jpg",
     span: "col-span-1 row-span-1", // Small
   },
   {
-    image: "/images/634f7bae-77a5-49d0-a0ab-5271a6194e66.png",
+    image: "https://iwene.com.tn/wp-content/uploads/2019/11/RESIDENCE-DIAR-IWEN-1-1.jpg",
     span: "col-span-1 row-span-2", // Tall
   },
   {
-    image: "/images/09ffa8fd-cdd1-453f-9aa2-d6c702a1f4b5.png",
+    image: "https://iwene.com.tn/wp-content/uploads/2024/03/Rendu-3.webp",
     span: "col-span-2 row-span-1", // Wide
   },
   {
-    image: "/images/040e36b1-d16f-474b-a712-a9979e6ab479.png",
+    image: "https://iwene.com.tn/wp-content/uploads/2023/10/chambre.t.jpg",
     span: "col-span-1 row-span-1", // Small
   },
 ];

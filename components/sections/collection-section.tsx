@@ -5,24 +5,21 @@ import { FadeImage } from "@/components/fade-image";
 const accessories = [
   {
     id: 1,
-    name: "Modèle Compact",
-    description: "Espace de vie de 120m² avec efficacité énergétique optimale",
-    price: "À partir de 285 000 €",
-    image: "/images/hero-side-1.png",
+    name: "RÉSIDENCE DIAR IWEN",
+    description: "Projet Résidentiel",
+    image: "https://iwene.com.tn/wp-content/uploads/2019/11/RESIDENCE-DIAR-IWEN-2-1.jpg",
   },
   {
     id: 2,
-    name: "Modèle Standard",
-    description: "180m² équilibre parfait entre espace et durabilité",
-    price: "À partir de 395 000 €",
-    image: "/images/hero-side-2.png",
+    name: "RÉSIDENCE IWEN",
+    description: "Projet Résidentiel",
+    image: "https://iwene.com.tn/wp-content/uploads/2024/03/Rendu-1.webp",
   },
   {
     id: 3,
-    name: "Modèle Premium",
-    description: "250m² design expansif avec confort maximum",
-    price: "À partir de 525 000 €",
-    image: "/images/hero-side-4.png",
+    name: "RÉSIDENCE HORIZON",
+    description: "Sfax El Jadida",
+    image: "https://iwene.com.tn/wp-content/uploads/2023/10/1504024492_facade.angle01.jpg",
   },
 ];
 
@@ -32,7 +29,7 @@ export function CollectionSection() {
       {/* Section Title */}
       <div className="px-6 py-20 md:px-12 lg:px-20 md:py-10">
         <h2 className="text-3xl font-medium tracking-tight text-foreground md:text-4xl">
-          Nos Modèles
+          Nos Projets
         </h2>
       </div>
 
@@ -63,9 +60,6 @@ export function CollectionSection() {
                       {accessory.description}
                     </p>
                   </div>
-                  <span className="text-lg font-medium text-foreground">
-                    {accessory.price}
-                  </span>
                 </div>
               </div>
             </div>
@@ -97,9 +91,6 @@ export function CollectionSection() {
                       {accessory.description}
                     </p>
                   </div>
-                  <span className="font-medium text-foreground text-2xl">
-                    {accessory.price}
-                  </span>
                 </div>
               </div>
             </div>

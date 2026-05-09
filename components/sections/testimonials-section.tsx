@@ -8,7 +8,7 @@ export function TestimonialsSection() {
       {/* About Image with Text Overlay */}
       <div className="relative aspect-[16/9] w-full">
         <Image
-          src="/images/testimonial-house.png"
+          src="https://iwene.com.tn/wp-content/uploads/2024/03/rendu-3-1.webp"
           alt="Iwene luxury residences showcase"
           fill
           className="object-cover"
