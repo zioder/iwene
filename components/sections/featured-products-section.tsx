@@ -61,13 +61,12 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 40, scale: 0.96 },
+  hidden: { opacity: 1, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
     transition: {
-      duration: 0.6,
+      duration: 0.7,
       ease: [0.22, 1, 0.36, 1],
     },
   },
@@ -95,6 +94,7 @@ export function FeaturedProductsSection() {
                 alt={`Iwene residence ${index + 1}`}
                 fill
                 sizes={feature.sizes}
+                fadeDelay={index * 100}
                 className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
               />
             </motion.div>

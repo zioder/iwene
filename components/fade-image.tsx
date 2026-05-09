@@ -36,11 +36,13 @@ export function FadeImage({ className, fadeDelay = 0, ...props }: FadeImageProps
   }, [fadeDelay]);
 
   return (
-    <div ref={ref} className="relative h-full w-full">
+    <div ref={ref} className="relative h-full w-full overflow-hidden">
       <Image
         {...props}
-        className={`${className || ""} transition-all duration-700 ease-out ${
-          isVisible && isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-[1.02]"
+        className={`${className || ""} transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          isVisible && isLoaded
+            ? "opacity-100 scale-100 [filter:blur(0px)]"
+            : "opacity-0 scale-[1.08] [filter:blur(12px)]"
         }`}
         onLoad={() => setIsLoaded(true)}
       />
