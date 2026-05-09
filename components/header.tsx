@@ -2,12 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,12 +56,21 @@ export function Header() {
           >
             Accueil
           </Link>
-          <Link
-            href="/a-propos"
-            className="text-sm font-medium transition-colors text-foreground/80 hover:text-primary"
-          >
-            À Propos
-          </Link>
+          {isHome ? (
+            <a
+              href="#a-propos"
+              className="text-sm font-medium transition-colors text-foreground/80 hover:text-primary"
+            >
+              À Propos
+            </a>
+          ) : (
+            <Link
+              href="/#a-propos"
+              className="text-sm font-medium transition-colors text-foreground/80 hover:text-primary"
+            >
+              À Propos
+            </Link>
+          )}
           <Link
             href="/projets"
             className="text-sm font-medium transition-colors text-foreground/80 hover:text-primary"
@@ -105,13 +117,23 @@ export function Header() {
             >
               Accueil
             </Link>
-            <Link
-              href="/a-propos"
-              className="text-lg text-foreground"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              À Propos
-            </Link>
+            {isHome ? (
+              <a
+                href="#a-propos"
+                className="text-lg text-foreground"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                À Propos
+              </a>
+            ) : (
+              <Link
+                href="/#a-propos"
+                className="text-lg text-foreground"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                À Propos
+              </Link>
+            )}
             <Link
               href="/projets"
               className="text-lg text-foreground"

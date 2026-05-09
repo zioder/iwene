@@ -71,9 +71,15 @@ export function PhilosophySection() {
   }, [updateTransforms]);
 
   return (
-    <section id="products" className="bg-background">
+    <section className="bg-background">
       {/* Scroll-Animated Product Grid */}
       <div ref={sectionRef} className="relative" style={{ height: "200vh" }}>
+        {/* Anchor for À Propos — positioned where "Vie de Luxe" is clearly visible */}
+        <div
+          id="a-propos"
+          className="absolute left-0 w-full pointer-events-none scroll-mt-28"
+          style={{ top: "42vh" }}
+        />
         <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
           <div className="relative w-full max-w-7xl px-4">
             {/* Title - centered with 3D rotation */}
