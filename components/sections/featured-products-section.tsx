@@ -1,71 +1,105 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { FadeImage } from "@/components/fade-image";
 
 const features = [
   {
-    image: "https://iwene.com.tn/wp-content/uploads/2024/03/Rendu-1-1.webp",
-    span: "col-span-2 row-span-2", // Large
+    image: "/images/bento/1.png",
+    span: "col-span-2 row-span-1",
+    sizes: "(max-width: 768px) 100vw, 50vw",
   },
   {
-    image: "https://iwene.com.tn/wp-content/uploads/2024/03/rendu-3-1.webp",
-    span: "col-span-1 row-span-1", // Small
+    image: "/images/bento/2.png",
+    span: "col-span-2 row-span-1",
+    sizes: "(max-width: 768px) 100vw, 50vw",
   },
   {
-    image: "https://iwene.com.tn/wp-content/uploads/2024/03/rendu-2-1.webp",
-    span: "col-span-1 row-span-1", // Small
+    image: "/images/bento/3.png",
+    span: "col-span-1 row-span-1",
+    sizes: "(max-width: 768px) 50vw, 25vw",
   },
   {
-    image: "https://iwene.com.tn/wp-content/uploads/2024/03/rendu-2.webp",
-    span: "col-span-1 row-span-2", // Tall
+    image: "/images/bento/4.png",
+    span: "col-span-2 row-span-1",
+    sizes: "(max-width: 768px) 100vw, 50vw",
   },
   {
-    image: "https://iwene.com.tn/wp-content/uploads/2019/11/RESIDENCE-DIAR-IWEN-2-1.jpg",
-    span: "col-span-1 row-span-1", // Small
+    image: "/images/bento/5.png",
+    span: "col-span-1 row-span-2",
+    sizes: "(max-width: 768px) 50vw, 25vw",
   },
   {
-    image: "https://iwene.com.tn/wp-content/uploads/2024/03/Rendu-1.webp",
-    span: "col-span-2 row-span-1", // Wide
+    image: "/images/bento/6.png",
+    span: "col-span-2 row-span-1",
+    sizes: "(max-width: 768px) 100vw, 50vw",
   },
   {
-    image: "https://iwene.com.tn/wp-content/uploads/2023/10/1504024492_facade.angle01.t.jpg",
-    span: "col-span-1 row-span-1", // Small
+    image: "/images/bento/7.png",
+    span: "col-span-1 row-span-2",
+    sizes: "(max-width: 768px) 50vw, 25vw",
   },
   {
-    image: "https://iwene.com.tn/wp-content/uploads/2019/11/RESIDENCE-DIAR-IWEN-1-1.jpg",
-    span: "col-span-1 row-span-2", // Tall
+    image: "/images/bento/9.png",
+    span: "col-span-2 row-span-1",
+    sizes: "(max-width: 768px) 100vw, 50vw",
   },
   {
-    image: "https://iwene.com.tn/wp-content/uploads/2024/03/Rendu-3.webp",
-    span: "col-span-2 row-span-1", // Wide
-  },
-  {
-    image: "https://iwene.com.tn/wp-content/uploads/2023/10/chambre.t.jpg",
-    span: "col-span-1 row-span-1", // Small
+    image: "/images/bento/1.png",
+    span: "col-span-1 row-span-1",
+    sizes: "(max-width: 768px) 50vw, 25vw",
   },
 ];
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40, scale: 0.96 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
 
 export function FeaturedProductsSection() {
   return (
     <section id="projects" className="relative bg-background py-20 md:py-32">
       <div className="px-4 md:px-12 lg:px-20">
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-foreground">Projets Phares</h2>
-        {/* Bento Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 w-full max-w-7xl mx-auto auto-rows-[180px] md:auto-rows-[220px]">
+        <motion.div
+          className="@container grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 w-full max-w-7xl mx-auto grid-flow-dense auto-rows-[calc(50cqi-0.375rem)] md:auto-rows-[calc(25cqi-0.75rem)]"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {features.map((feature, index) => (
-            <div 
-              key={index} 
-              className={`relative overflow-hidden rounded-lg border border-primary/20 hover:border-primary transition-colors ${feature.span}`}
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className={`group relative overflow-hidden rounded-lg border border-primary/20 hover:border-primary transition-colors will-change-transform ${feature.span}`}
             >
               <FadeImage
                 src={feature.image || "/placeholder.svg"}
                 alt={`Iwene residence ${index + 1}`}
                 fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
+                sizes={feature.sizes}
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
               />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

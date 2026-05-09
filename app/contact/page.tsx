@@ -15,7 +15,7 @@ export default function Contact() {
         <p className="text-xl text-muted-foreground max-w-3xl mb-8">
           N'hésitez pas à nous contacter pour toutes vos demandes de renseignements.
         </p>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 text-lg">
           <div>
             <h3 className="font-semibold text-2xl mb-4">Par Téléphone</h3>

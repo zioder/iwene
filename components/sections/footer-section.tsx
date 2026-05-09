@@ -5,7 +5,7 @@ import Link from "next/link";
 const footerLinks = {
   menu: [
     { label: "Accueil", href: "/" },
-    { label: "À PROPOS", href: "/a-propos" },
+    { label: "À Propos", href: "/a-propos" },
     { label: "Nos projets", href: "/projets" },
     { label: "Nos actualités", href: "/nos-actualites" },
     { label: "CONTACT", href: "/contact" },
@@ -35,7 +35,7 @@ export function FooterSection() {
               Iwene immobilière
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              La société Iwene est une société tunisienne de promotion immobilière agrée par le ministère de l’équipement et de l’habitat constituée en 2005.<br/><br/>
+              La société Iwene est une société tunisienne de promotion immobilière agrée par le ministère de l’équipement et de l’habitat constituée en 2005.<br /><br />
               Elle fait partie d’un groupe de sociétés fondé par les Cousins MOALLA.
             </p>
           </div>
@@ -97,11 +97,9 @@ export function FooterSection() {
       {/* Bottom Bar */}
       <div className="border-t border-border px-6 py-6 md:px-12 lg:px-20">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-          <p className="text-xs text-muted-foreground">
-            Copyright © <a href="https://expert-dev-solutions.com/" className="text-primary hover:underline">Expert Dev Solutions</a> | All rights reserved.
-          </p>
+          <div />
 
-          
+
 
           {/* Social Links */}
           <div className="flex items-center gap-4">

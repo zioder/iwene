@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { FadeImage } from "@/components/fade-image";
 
 const accessories = [
@@ -8,18 +9,21 @@ const accessories = [
     name: "RÉSIDENCE DIAR IWEN",
     description: "Projet Résidentiel",
     image: "https://iwene.com.tn/wp-content/uploads/2019/11/RESIDENCE-DIAR-IWEN-2-1.jpg",
+    slug: "residence-diar-iwen",
   },
   {
     id: 2,
     name: "RÉSIDENCE IWEN",
     description: "Projet Résidentiel",
-    image: "https://iwene.com.tn/wp-content/uploads/2024/03/Rendu-1.webp",
+    image: "https://iwene.com.tn/wp-content/uploads/2024/03/rendu-3-1.webp",
+    slug: "residence-iwene",
   },
   {
     id: 3,
     name: "RÉSIDENCE HORIZON",
     description: "Sfax El Jadida",
-    image: "https://iwene.com.tn/wp-content/uploads/2023/10/1504024492_facade.angle01.jpg",
+    image: "https://iwene.com.tn/wp-content/uploads/2019/11/RESIDENCE-HORIZON-1.jpg.png",
+    slug: "residence-horizon",
   },
 ];
 
@@ -38,7 +42,11 @@ export function CollectionSection() {
         {/* Mobile: Horizontal Carousel */}
         <div className="flex gap-6 overflow-x-auto px-6 pb-4 md:hidden snap-x snap-mandatory scrollbar-hide">
           {accessories.map((accessory) => (
-            <div key={accessory.id} className="group flex-shrink-0 w-[75vw] snap-center">
+            <Link
+              key={accessory.id}
+              href={`/projets/${accessory.slug}`}
+              className="group flex-shrink-0 w-[75vw] snap-center"
+            >
               {/* Image */}
               <div className="relative aspect-[2/3] overflow-hidden rounded-2xl bg-secondary">
                 <FadeImage
@@ -62,14 +70,18 @@ export function CollectionSection() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
         {/* Desktop: Grid */}
         <div className="hidden md:grid md:grid-cols-3 gap-8 md:px-12 lg:px-20">
           {accessories.map((accessory) => (
-            <div key={accessory.id} className="group">
+            <Link
+              key={accessory.id}
+              href={`/projets/${accessory.slug}`}
+              className="group"
+            >
               {/* Image */}
               <div className="relative aspect-[2/3] overflow-hidden rounded-2xl bg-secondary">
                 <FadeImage
@@ -93,7 +105,7 @@ export function CollectionSection() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

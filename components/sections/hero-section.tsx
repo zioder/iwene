@@ -81,7 +81,7 @@ export function HeroSection() {
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* Massive Background Text - Fixed behind everything */}
         <div
-          className="absolute inset-0 z-0 flex items-start justify-center pointer-events-none pt-8 md:pt-25"
+          className="absolute inset-0 z-0 flex items-start justify-center pointer-events-none pt-30 md:pt-25"
           style={{ opacity: textOpacity }}
         >
           <h1 className="whitespace-nowrap text-[25vw] font-bold leading-[0.8] tracking-tighter text-primary">
@@ -145,6 +145,8 @@ export function HeroSection() {
                 height: `${centerHeight}%`,
                 flex: "0 0 auto",
                 borderRadius: `${borderRadius}px`,
+                transition: 'transform 0.8s ease-out',
+                transform: `scale(${1 - imageProgress * 0.05})`,
               }}
             >
               <Image
@@ -194,7 +196,11 @@ export function HeroSection() {
         className="pointer-events-none fixed bottom-0 left-0 right-0 z-10 px-6 pb-12 md:px-12 md:pb-16 lg:px-20 lg:pb-20"
         style={{ opacity: textOpacity }}
       >
-        <p className="mx-auto max-w-2xl text-center text-2xl leading-relaxed text-white md:text-3xl lg:text-[2.5rem] lg:leading-snug">
+        <p className="mx-auto max-w-2xl text-center text-2xl leading-relaxed text-white md:text-3xl lg:text-[2.5rem] lg:leading-snug"
+          style={{
+            textShadow: '0 2px 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(201, 169, 97, 0.6), 0 0 40px rgba(201, 169, 97, 0.3)'
+          }}
+        >
           Résidences Premium
           <br />
           en Tunisie

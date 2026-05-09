@@ -4,7 +4,7 @@ import { FooterSection } from "@/components/sections/footer-section";
 
 export const metadata = {
   title: 'Nos actualités - IWENE',
-  description: 'Découvrez les dernières actualités d''Iwene.',
+  description: "Découvrez les dernières actualités d'Iwene.",
 };
 
 export default function Actualites() {

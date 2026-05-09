@@ -7,9 +7,8 @@ import './globals.css'
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  title: 'IWENE - Résidences Premium en Tunisie',
+  title: 'Iwene',
   description: 'Découvrez des propriétés résidentielles de luxe en Tunisie. IWENE propose des maisons premium alliant design moderne et élégance intemporelle.',
-  generator: 'v0.app',
   icons: {
     icon: [
       {

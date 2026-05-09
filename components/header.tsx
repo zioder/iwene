@@ -20,9 +20,17 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl transition-all duration-300 backdrop-blur-md rounded-full ${isScrolled ? "bg-background/90 shadow-lg" : "bg-background/40 shadow-sm"}`}
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl transition-all duration-300 backdrop-blur-md ${
+        isMenuOpen
+          ? "bg-background rounded-3xl shadow-lg"
+          : `${isScrolled ? "bg-background/90 shadow-lg" : "bg-background/40 shadow-sm"} rounded-full`
+      }`}
       style={{
-        boxShadow: isScrolled ? "rgba(201, 169, 97, 0.15) 0px 0px 0px 1px, rgba(26, 26, 26, 0.04) 0px 1px 1px -0.5px, rgba(26, 26, 26, 0.04) 0px 3px 3px -1.5px" : "rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset"
+        boxShadow: isMenuOpen
+          ? "rgba(201, 169, 97, 0.15) 0px 0px 0px 1px, rgba(26, 26, 26, 0.04) 0px 1px 1px -0.5px, rgba(26, 26, 26, 0.04) 0px 3px 3px -1.5px"
+          : isScrolled
+          ? "rgba(201, 169, 97, 0.15) 0px 0px 0px 1px, rgba(26, 26, 26, 0.04) 0px 1px 1px -0.5px, rgba(26, 26, 26, 0.04) 0px 3px 3px -1.5px"
+          : "rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset",
       }}
     >
       <div className="flex items-center justify-between transition-all duration-300 px-4 pl-5 py-3">
