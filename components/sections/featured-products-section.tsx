@@ -16,13 +16,13 @@ const features = [
   },
   {
     image: "/images/bento/3.png",
-    span: "col-span-1 row-span-1",
-    sizes: "(max-width: 768px) 50vw, 25vw",
+    span: "col-span-2 row-span-1",
+    sizes: "(max-width: 768px) 100vw, 50vw",
   },
   {
     image: "/images/bento/4.png",
-    span: "col-span-2 row-span-1",
-    sizes: "(max-width: 768px) 100vw, 50vw",
+    span: "col-span-1 row-span-2",
+    sizes: "(max-width: 768px) 50vw, 25vw",
   },
   {
     image: "/images/bento/5.png",
@@ -36,18 +36,13 @@ const features = [
   },
   {
     image: "/images/bento/7.png",
-    span: "col-span-1 row-span-2",
-    sizes: "(max-width: 768px) 50vw, 25vw",
-  },
-  {
-    image: "/images/bento/9.png",
     span: "col-span-2 row-span-1",
     sizes: "(max-width: 768px) 100vw, 50vw",
   },
   {
     image: "/images/bento/1.png",
-    span: "col-span-1 row-span-1",
-    sizes: "(max-width: 768px) 50vw, 25vw",
+    span: "col-span-2 row-span-1",
+    sizes: "(max-width: 768px) 100vw, 50vw",
   },
 ];
 

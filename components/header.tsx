@@ -4,7 +4,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+
+const projectCategories = [
+  { value: "ongoing", label: "Projets en cours" },
+  { value: "realized", label: "Projets réalisés" },
+  { value: "future", label: "Futurs projets" },
+];
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -71,12 +77,30 @@ export function Header() {
               À Propos
             </Link>
           )}
-          <Link
-            href="/projets"
-            className="text-sm font-medium transition-colors text-foreground/80 hover:text-primary"
+          <div
+            className="relative group"
           >
-            Nos projets
-          </Link>
+            <Link
+              href="/projets"
+              className="text-sm font-medium transition-colors text-foreground/80 hover:text-primary flex items-center gap-1"
+            >
+              Nos projets
+              <ChevronDown className="h-3 w-3 transition-transform group-hover:rotate-180" />
+            </Link>
+            <div className="absolute top-full left-0 pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div className="bg-background border border-border rounded-lg shadow-lg py-2">
+                {projectCategories.map((cat) => (
+                  <Link
+                    key={cat.value}
+                    href={`/projets?category=${cat.value}`}
+                    className="block px-4 py-2 text-sm text-foreground/80 hover:text-primary hover:bg-muted"
+                  >
+                    {cat.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
           <Link
             href="/nos-actualites"
             className="text-sm font-medium transition-colors text-foreground/80 hover:text-primary"
@@ -134,13 +158,19 @@ export function Header() {
                 À Propos
               </Link>
             )}
-            <Link
-              href="/projets"
-              className="text-lg text-foreground"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Nos projets
-            </Link>
+            <div className="space-y-3">
+              <p className="text-lg text-foreground font-medium">Nos projets</p>
+              {projectCategories.map((cat) => (
+                <Link
+                  key={cat.value}
+                  href={`/projets?category=${cat.value}`}
+                  className="block text-base text-foreground/70 pl-4"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {cat.label}
+                </Link>
+              ))}
+            </div>
             <Link
               href="/nos-actualites"
               className="text-lg text-foreground"

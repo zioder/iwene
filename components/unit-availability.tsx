@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, X, Clock, Home, Maximize, BedDouble, Banknote } from "lucide-react";
+import { Check, X, Clock, Home, Maximize, BedDouble, Compass } from "lucide-react";
 import type { Project, Unit } from "@/lib/project-data";
 import { getProjectStats } from "@/lib/project-data";
 
@@ -218,9 +218,9 @@ export function UnitAvailability({ project }: UnitAvailabilityProps) {
                 value={`${selectedUnit.rooms}`}
               />
               <UnitDetailItem
-                icon={Banknote}
-                label="Prix"
-                value={`${selectedUnit.price.toLocaleString("fr-FR")} TND`}
+                icon={Compass}
+                label="Orientation"
+                value={selectedUnit.orientation}
               />
               <UnitDetailItem
                 icon={Home}
