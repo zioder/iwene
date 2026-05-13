@@ -1,13 +1,22 @@
 ﻿import { Header } from "@/components/header";
 import { NewsSection } from "@/components/sections/news-section";
 import { FooterSection } from "@/components/sections/footer-section";
+import { db } from "@/lib/db";
+import { articles } from "@/lib/db/schema";
+import { eq, desc } from "drizzle-orm";
 
 export const metadata = {
   title: 'Nos actualités - IWENE',
   description: "Découvrez les dernières actualités d'Iwene.",
 };
 
-export default function Actualites() {
+export default async function Actualites() {
+  const articleList = await db
+    .select()
+    .from(articles)
+    .where(eq(articles.published, true))
+    .orderBy(desc(articles.createdAt));
+
   return (
     <main className="min-h-screen bg-background flex flex-col">
       <Header />
@@ -16,7 +25,7 @@ export default function Actualites() {
         <p className="text-xl text-muted-foreground max-w-3xl mb-16">
           Restez informé sur nos dernières nouveautés, chantiers en cours et événements à ne pas manquer.
         </p>
-        <NewsSection />
+        <NewsSection articles={articleList} />
       </div>
       <FooterSection />
     </main>

@@ -8,8 +8,28 @@ import { FeaturedProductsSection } from "@/components/sections/featured-products
 import { EditorialSection } from "@/components/sections/editorial-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { FooterSection } from "@/components/sections/footer-section";
+import { db } from "@/lib/db";
+import { projects } from "@/lib/db/schema";
+import { Suspense } from "react";
 
-export default function Home() {
+export default async function Home() {
+  const categoryLabels: Record<string, string> = {
+    ongoing: "Projets en cours",
+    realized: "Projets réalisés",
+    future: "Futurs projets",
+  };
+
+  const projectList = await db
+    .select({
+      id: projects.id,
+      slug: projects.slug,
+      name: projects.name,
+      location: projects.location,
+      image: projects.image,
+      category: projects.category,
+    })
+    .from(projects);
+
   return (
     <main className="min-h-screen bg-background">
       <Header />
@@ -17,7 +37,9 @@ export default function Home() {
       <PhilosophySection />
       <FeaturedProductsSection />
       <TechnologySection />
-      <CollectionSection />
+      <Suspense fallback={<div className="px-6 md:px-12 lg:px-20 py-12">Chargement...</div>}>
+        <CollectionSection projects={projectList} categories={categoryLabels} />
+      </Suspense>
       <TestimonialsSection />
       <FooterSection />
     </main>
