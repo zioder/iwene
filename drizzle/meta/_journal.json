@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1778695690790,
+      "tag": "0000_flimsy_morlocks",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1778698338772,
+      "tag": "0001_jittery_lady_mastermind",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1778698400000,
+      "tag": "0002_replace_price_with_orientation",
+      "breakpoints": true
+    }
+  ]
+}
